@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 
 export const generateFakeProduct = () => ({
-  title: faker.commerce.product(),
+  name: faker.commerce.product(),
   quantitySold: faker.datatype.number()
 
 });

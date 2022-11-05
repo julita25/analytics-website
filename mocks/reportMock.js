@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 
 export const generateFakeReportCard = () => ({
-  month: faker.date.weekday(),
+  dayOfTheWeek: faker.date.weekday(),
   itemsSold: faker.datatype.number({ max: 100 }),
   income: faker.datatype.float(),
   returns: faker.datatype.number({ max: 10 })
