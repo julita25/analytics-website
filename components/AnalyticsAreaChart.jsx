@@ -4,14 +4,14 @@ import {
 } from "recharts";
 import { instanceOf } from "prop-types";
 
-const AnalyticsChart = ({ data }) => (
+const AnalyticsAreaChart = ({ data }) => (
   <AreaChart
     width={500}
     height={400}
     data={data}
     margin={{
       top: 10,
-      right: 30,
+      right: -10,
       left: 0,
       bottom: 0
     }}
@@ -23,8 +23,8 @@ const AnalyticsChart = ({ data }) => (
   </AreaChart>
 );
 
-AnalyticsChart.propTypes = {
+AnalyticsAreaChart.propTypes = {
   data: instanceOf(Array).isRequired
 };
 
-export default AnalyticsChart;
+export default AnalyticsAreaChart;

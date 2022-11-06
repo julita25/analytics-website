@@ -1,25 +1,24 @@
 import React from "react";
 import {
-  BarChart, XAxis, YAxis, Tooltip, Bar, Legend
+  BarChart, XAxis, YAxis, Tooltip, Bar
 } from "recharts";
 import { instanceOf } from "prop-types";
 
 const AnalyticsBarChart = ({ data }) => (
   <BarChart
     width={500}
-    height={300}
+    height={400}
     data={data}
     margin={{
-      top: 5,
-      right: 30,
-      left: 20,
-      bottom: 5
+      top: 10,
+      right: -10,
+      left: 0,
+      bottom: 0
     }}
   >
     <XAxis dataKey="dayOfTheWeek" />
     <YAxis />
     <Tooltip />
-    <Legend />
     <Bar dataKey="income" fill="#8884d8" />
   </BarChart>
 );
