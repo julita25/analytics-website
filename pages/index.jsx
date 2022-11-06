@@ -6,7 +6,7 @@ const AnalyticsPage = () => {
   const [selected, setSelected] = useState("Area Chart");
 
   return (
-    <div className="flex w-full justify-center p-10">
+    <div className="flex w-screen justify-center p-10 bg-gray-100 h-screen">
       <div className="space-y-4">
         <div className="text-blue-500 font-bold text-5xl">Check your companys insight!</div>
         <Tabs onChange={setSelected} />

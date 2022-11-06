@@ -36,7 +36,7 @@ const Analytics = ({ selected }) => {
   useEffect(() => {
     setTimeout(() => {
       setTransition(true);
-    }, 800);
+    }, 500);
     setTransition(false);
   }, [selected]);
 
@@ -49,7 +49,7 @@ const Analytics = ({ selected }) => {
         enterTo="opacity-100 rotate-0 scale-100"
       >
         {transition && (
-          <Panel className="w-full border" header={ChartTypes[key].header}>
+          <Panel className="w-full border bg-white" header={ChartTypes[key].header}>
             {ChartTypes[key].body}
           </Panel>
         )}
