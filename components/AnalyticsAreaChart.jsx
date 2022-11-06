@@ -16,7 +16,7 @@ const AnalyticsChart = ({ data }) => (
       bottom: 0
     }}
   >
-    <XAxis dataKey="month" />
+    <XAxis dataKey="dayOfTheWeek" />
     <YAxis />
     <Tooltip />
     <Area type="monotone" dataKey="itemsSold" stroke="#8884d8" fill="#8884d8" />

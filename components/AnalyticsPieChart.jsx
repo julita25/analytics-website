@@ -7,7 +7,7 @@ import { instanceOf } from "prop-types";
 const AnalyticsPieChart = ({ data }) => (
   <PieChart width={400} height={400}>
     <Pie
-      dataKey="value"
+      dataKey="quantitySold"
       isAnimationActive={false}
       data={data}
       cx="50%"
