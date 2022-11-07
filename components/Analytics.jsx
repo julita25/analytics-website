@@ -5,33 +5,44 @@ import { Panel } from "rsuite";
 import { string } from "prop-types";
 import loadable from "@loadable/component";
 import { generateFakeProductList } from "../mocks/productsSold";
-import { generateFakeReportCardList } from "../mocks/reportMock";
+import { generateFakeMonthlyReportCards, generateFakeWeeklyReportCards } from "../mocks/reportMock";
 
 const AreaChart = loadable(() => import("./AnalyticsAreaChart"));
 const BarChart = loadable(() => import("./AnalyticsBarChart"));
 const PieChart = loadable(() => import("./AnalyticsPieChart"));
 
-const reportCards = generateFakeReportCardList(5);
+const reportCardsWeekly = generateFakeWeeklyReportCards();
+const reportCardsMonthly = generateFakeMonthlyReportCards();
 const products = generateFakeProductList(5);
 
-const ChartTypes = {
-  areaChart: {
-    header: "Income",
-    body: <AreaChart data={reportCards} />
-  },
-  barChart: {
-    header: "Items sold",
-    body: <BarChart data={reportCards} />
-  },
-  pieChart: {
-    header: "Most sold products",
-    body: <PieChart data={products} />
-  }
-};
-
-const Analytics = ({ selected }) => {
+const Analytics = ({ selected, dateFilter }) => {
   const key = `${selected[0].toLowerCase()}${selected.replace(" ", "").slice(1)}`;
+  const [reportCards, setReportCards] = useState();
   const [transition, setTransition] = useState(true);
+  const dataKey = dateFilter === "Weekly" ? "dayOfTheWeek" : "month";
+
+  const ChartTypes = {
+    areaChart: {
+      header: `${dateFilter} sales`,
+      body: <AreaChart data={reportCards} dataKey={dataKey} />
+    },
+    barChart: {
+      header: "# Items sold",
+      body: <BarChart data={reportCards} dataKey={dataKey} />
+    },
+    pieChart: {
+      header: "Most sold products",
+      body: <PieChart data={products} />
+    }
+  };
+
+  useEffect(() => {
+    if (dateFilter === "Weekly") {
+      setReportCards(reportCardsWeekly);
+    } else {
+      setReportCards(reportCardsMonthly);
+    }
+  }, [dateFilter]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -59,7 +70,8 @@ const Analytics = ({ selected }) => {
 };
 
 Analytics.propTypes = {
-  selected: string.isRequired
+  selected: string.isRequired,
+  dateFilter: string.isRequired
 };
 
 export default Analytics;

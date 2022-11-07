@@ -7,7 +7,7 @@ import { instanceOf } from "prop-types";
 import { COLORS } from "../constants/chartsCostants";
 
 const AnalyticsPieChart = ({ data }) => (
-  <PieChart width={450} height={400}>
+  <PieChart width={800} height={400}>
     <Pie
       dataKey="quantitySold"
       data={data}

@@ -1,14 +1,14 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
 import {
-  BarChart, XAxis, YAxis, Tooltip, Bar, Cell
+  BarChart, XAxis, YAxis, Tooltip, Bar
 } from "recharts";
-import { instanceOf } from "prop-types";
-import { COLORS } from "../constants/chartsCostants";
+import { instanceOf, string } from "prop-types";
+import CustomisedTooltip from "./CustomisedTooltip";
 
-const AnalyticsBarChart = ({ data }) => (
+const AnalyticsBarChart = ({ data, dataKey }) => (
   <BarChart
-    width={450}
+    width={800}
     height={400}
     data={data}
     margin={{
@@ -18,19 +18,16 @@ const AnalyticsBarChart = ({ data }) => (
       bottom: 0
     }}
   >
-    <XAxis dataKey="dayOfTheWeek" />
+    <XAxis dataKey={dataKey} />
     <YAxis />
-    <Tooltip />
-    <Bar dataKey="income" fill="#8884d8">
-      {data.map((item, index) => (
-        <Cell key={`cell-${index}`} fill={COLORS[index]} />
-      ))}
-    </Bar>
+    <Tooltip content={<CustomisedTooltip hideCurrency />} />
+    <Bar dataKey="sold" fill="#8884d8" />
   </BarChart>
 );
 
 AnalyticsBarChart.propTypes = {
-  data: instanceOf(Array).isRequired
+  data: instanceOf(Array).isRequired,
+  dataKey: string.isRequired
 };
 
 export default AnalyticsBarChart;
