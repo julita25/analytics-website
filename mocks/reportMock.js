@@ -1,19 +1,20 @@
 import { faker } from "@faker-js/faker";
 
-export const generateFakeReportCard = () => ({
-  dayOfTheWeek: faker.date.weekday(),
+export const generateFakeReportCard = (day) => ({
+  dayOfTheWeek: day,
   itemsSold: faker.datatype.number({ max: 100 }),
   income: faker.datatype.float(),
   returns: faker.datatype.number({ max: 10 })
 });
 
-export const generateFakeCardList = (N) => {
+export const generateFakeReportCardList = (N) => {
   const reportCards = [];
+  const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
   [...Array(N).keys()].forEach((card, index) => {
     const item = {
       id: index,
-      ...generateFakeReportCard()
+      ...generateFakeReportCard(daysOfTheWeek[index])
     };
     reportCards.push(item);
   });
