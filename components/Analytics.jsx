@@ -5,13 +5,13 @@ import { Panel } from "rsuite";
 import { string } from "prop-types";
 import loadable from "@loadable/component";
 import { generateFakeProductList } from "../mocks/productsSold";
-import { generateFakeCardList } from "../mocks/reportMock";
+import { generateFakeReportCardList } from "../mocks/reportMock";
 
 const AreaChart = loadable(() => import("./AnalyticsAreaChart"));
 const BarChart = loadable(() => import("./AnalyticsBarChart"));
 const PieChart = loadable(() => import("./AnalyticsPieChart"));
 
-const reportCards = generateFakeCardList(3);
+const reportCards = generateFakeReportCardList(5);
 const products = generateFakeProductList(5);
 
 const ChartTypes = {

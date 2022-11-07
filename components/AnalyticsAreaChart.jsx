@@ -6,7 +6,7 @@ import { instanceOf } from "prop-types";
 
 const AnalyticsAreaChart = ({ data }) => (
   <AreaChart
-    width={500}
+    width={450}
     height={400}
     data={data}
     margin={{

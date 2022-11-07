@@ -8,7 +8,7 @@ const AnalyticsPage = () => {
   return (
     <div className="flex w-screen justify-center p-10 bg-gray-100 h-screen">
       <div className="space-y-4">
-        <div className="text-blue-500 font-bold text-5xl">Check your companys insight!</div>
+        <div className="text-blue-500 font-bold text-5xl">Company performance</div>
         <Tabs onChange={setSelected} />
         <div className="w-full h-[23rem] ">
           <Analytics selected={selected} />
