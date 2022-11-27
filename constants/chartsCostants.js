@@ -5,7 +5,7 @@ export const COLORS = [
 export const tabSections = [
   {
     chartType: "Area Chart",
-    title: "Weekly sales"
+    title: "Total sales"
   },
   {
     chartType: "Bar Chart",
