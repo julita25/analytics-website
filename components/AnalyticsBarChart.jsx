@@ -8,7 +8,7 @@ import CustomisedTooltip from "./CustomisedTooltip";
 
 const AnalyticsBarChart = ({ data, dataKey }) => (
   <BarChart
-    width={800}
+    width={950}
     height={400}
     data={data}
     margin={{

@@ -7,7 +7,7 @@ import CustomisedTooltip from "./CustomisedTooltip";
 
 const AnalyticsAreaChart = ({ data, dataKey }) => (
   <AreaChart
-    width={800}
+    width={950}
     height={400}
     data={data}
     margin={{
